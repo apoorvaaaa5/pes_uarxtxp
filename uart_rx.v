@@ -133,4 +133,4 @@ module uart_rx
   assign o_Rx_DV   = r_Rx_DV;
   assign o_Rx_Byte = r_Rx_Byte;
    
-endmodule // uart_rx
+endmodule 
