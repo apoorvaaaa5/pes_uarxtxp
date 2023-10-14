@@ -6,7 +6,7 @@
 // It sends out byte 0x37, and ensures the RX receives it correctly.
 `timescale 1ns/10ps
 
-`include "UART_TX.v"
+`include "sysvericode.v"
 
 module UART_TB ();
 
