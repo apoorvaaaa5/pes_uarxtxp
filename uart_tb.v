@@ -92,5 +92,11 @@ module uart_tb ();
         $display("Test Failed - Incorrect Byte Received");
        
     end
-   
+
+   initial 
+  begin
+    // Required to dump signals to EPWave
+    $dumpfile("dump.vcd");
+    $dumpvars(0);
+  end
 endmodule
