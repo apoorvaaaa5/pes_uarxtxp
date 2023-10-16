@@ -11,11 +11,13 @@ It used to transmit binary data serially starting from LSB to MSB in the form of
 * Baud rate generation for numerous applications that helps to determine the speed of data transmission.
 
 # Block/State diagram of UART Transmitter
-![183946249-70286928-a0ad-4af3-8ef9-b8f43dee4789](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/d4785eed-c153-4fe4-b1b9-7e9b8d8c807b)
+
+![download](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/549e7533-afa6-40b5-b616-75842601db56)
 
 The data packets are arranged with necessary bits like start bit, stop bit, parity checker etc to optimise the error, such an arrangement is known as data frame.This data frame is shared serially through the transmitter.
 
-![183946295-b4377ab5-b7c9-43dc-965b-2b91989724f9](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/efbaf7bc-5125-4d1e-a035-f09d62f3fad7)
+![images](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/d4fd2461-7f05-4355-a8c4-83ae3b5730f3)
+
 
 The transmiter is an Finite State Machine with 4 stable state which are IDLE, START, DATA and STOP.Initially the sequential circuit is in the IDLE state and when the transmission is enabled than the system goes to the START state where it sends an High to Low pulse on the Rx pin and it switches to DATA state , in this state the data stored in the buffered is send one by one with LSB as the first bit and MSB as the last bit.Once the data is transmitted serially at a predetermined baud rate than the system moves to the STOP state where it mantains the Rx line to HIGH state which indicates the end of the operation
 
@@ -51,6 +53,8 @@ gtkwave dump.vcd
 
 ```
 
+![2efa9e72-6ffe-4012-b808-42abb2a7748d](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/33b9b4ca-c266-4639-b277-c006e0b95f49)
+
 ![b22cf34d-f7da-413d-bb76-9de39ab0ab0e](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/fa30d9d5-be20-45b5-ba01-52bcefdd7fcc)
 
 #Synthesis
@@ -68,7 +72,8 @@ iverilog -DFUNCTIONAL -DUNIT_DELAY=#1 my_lib/verilog_model/primitives.v my_lib/v
 ./a.out
 gtkwave dump.vcd
 ```
+![5a141c76-ed4e-49a5-942a-9fa61d57c82e](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/1055dad5-50a7-48f2-8e5c-31942038435b)
 
 <img width="248" alt="Screenshot 2023-10-16 102053" src="https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/30383614-f728-4a44-9b30-4d868ca79dc0">
 
-![Uploading Screenshot 2023-10-16 102159.png…]()
+
