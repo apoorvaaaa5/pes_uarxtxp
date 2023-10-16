@@ -1,4 +1,3 @@
-# pes_uarxtxp
 # pes_uarxtxp=> UNIVERSAL ASYNCHRONOUS TRANSMITTER RECEIVER PROTOCOL
 This project simulates the designed UART Transmitter module which is used to transmit a data packet between devices using Asynchronous and Serial communication.The data length can vary from 5 bit to 8 bit but it must be decided before the communication begins along with the baud rate(in this case the baud rate is 115200).
 # INTRODUCTION
@@ -36,4 +35,40 @@ The transmiter is an Finite State Machine with 4 stable state which are IDLE, ST
    graphviz xdot pkg-config python3 libboost-system-dev \
    libboost-python-dev libboost-filesystem-dev zlib1g-dev
 ```
+- Now we type ```cd yosys``` and go into the yosys folder.
+- Now we type
+```
+sudo make install
+```
+# Simulation
 
+```
+cd vrl
+cd pes_uarxtxp
+iverilog -o pes_uarxtxp_tb.vvp pes_uarxtxp_tb.v
+vvp pes_uarxtxp_tb.vvp
+gtkwave dump.vcd
+
+```
+
+![b22cf34d-f7da-413d-bb76-9de39ab0ab0e](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/fa30d9d5-be20-45b5-ba01-52bcefdd7fcc)
+
+#Synthesis
+Invoke yosys
+```
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog UART_TX.v
+synth -top iiitb_ptvm
+dfflibmap -liberty lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+stat
+show
+write_verilog iiitb_uarttx_netlist.v
+iverilog -DFUNCTIONAL -DUNIT_DELAY=#1 my_lib/verilog_model/primitives.v my_lib/verilog_model/sky130_fd_sc_hd.v iiitb_uarttx_netlist.v iiitb_uarttx_tb.v
+./a.out
+gtkwave dump.vcd
+```
+
+<img width="248" alt="Screenshot 2023-10-16 102053" src="https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/30383614-f728-4a44-9b30-4d868ca79dc0">
+
+![Uploading Screenshot 2023-10-16 102159.png…]()
