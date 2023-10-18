@@ -74,6 +74,5 @@ gtkwave dump.vcd
 ```
 ![5a141c76-ed4e-49a5-942a-9fa61d57c82e](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/1055dad5-50a7-48f2-8e5c-31942038435b)
 
-<img width="248" alt="Screenshot 2023-10-16 102053" src="https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/30383614-f728-4a44-9b30-4d868ca79dc0">
-
+![62488ce0-88ad-4702-ac73-6195b30ad230](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/f0ac25df-c3a1-4ab3-bae9-78c5f48dc48d)
 
