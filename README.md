@@ -1,8 +1,8 @@
 # pes_uarxtxp=> UNIVERSAL ASYNCHRONOUS TRANSMITTER RECEIVER PROTOCOL
 This project simulates the designed UART Transmitter module which is used to transmit a data packet between devices using Asynchronous and Serial communication.The data length can vary from 5 bit to 8 bit but it must be decided before the communication begins along with the baud rate(in this case the baud rate is 115200).
 # INTRODUCTION
-UART is a Hardware based digital communication protocol used to transmit data between two device at an agreeded upon baud rate and data length.
-It used to transmit binary data serially starting from LSB to MSB in the form of data frames with a start bit and a stop bit. It transmits the data asynchronously through configurable and agreed upon baud rates.Baud rate is the rate at which information is being share(in this case information is in terms of bits) (eq 1). Data frame is the arrangement of data packets with a start bit before the MSB and one or two stop bit at the end of data packet.Start bit is a high-to-low pulse which indicates the start of the transmission and a stop bit is a High pulse to indicate the end of the operation.
+##What is UARTP?
+UART stands for universal asynchronous receiver / transmitter and defines a protocol, or set of rules, for exchanging serial data between two devices. UART is very simple and only uses two wires between transmitter and receiver to transmit and receive in both directions. Both ends also have a ground connection. Communication in UART can be simplex (data is sent in one direction only), half-duplex (each side speaks but only one at a time), or full-duplex (both sides can transmit simultaneously). Data in UART is transmitted in the form of frames. The format and content of these frames is briefly described and explained.
 
 * UART stands for universal asynchronous receiver / transmitter and is a simple, two-wire protocol for exchanging serial data.
 * Asynchronous means no shared clock, so for UART to work, the same bit or baud rate must be configured on both sides of the connection.
@@ -10,12 +10,10 @@ It used to transmit binary data serially starting from LSB to MSB in the form of
 * An optional parity bit can be used to detect single bit errors.
 * UART is still a widely used serial data protocol but has been replaced in some applications by technologies such as SPI, I2C, USB, and Ethernet in recent years.
   
-# APPLICATIONS
+# Where is UARTP used?
 
-* Interfacing of Sensors and communication modules to the microprocessor or microcontroller
-* Transferring data through PC serial port.
-* Baud rate generation for numerous applications that helps to determine the speed of data transmission.
-
+UART was one of the earliest serial protocols. The once ubiquitous serial ports are almost always UART-based, and devices using RS-232 interfaces, external modems, etc. are common examples of where UART is used.
+In recent years, the popularity of UART has decreased: protocols like SPI and I2C have been replacing UART between chips and components. Instead of communicating over a serial port, most modern computers and peripherals now use technologies like Ethernet and USB. However, UART is still used for lower-speed and lower-throughput applications, because it is very simple, low-cost and easy to implement.
 # Block/State diagram of UART Transmitter
 
 ![download](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/549e7533-afa6-40b5-b616-75842601db56)
@@ -51,10 +49,12 @@ sudo make install
 # Simulation
 
 ```
-cd vrl
-cd pes_uarxtxp
-iverilog -o pes_uarxtxp_tb.vvp pes_uarxtxp_tb.v
-vvp pes_uarxtxp_tb.vvp
+cd vsd
+cd VLSI
+cd sky130RTLDesignAndSynthesisWorkshop
+cd verilog_files
+iverilog -o uart_tb.vvp uart_tb.v
+vvp uart_tb.vvp
 gtkwave dump.vcd
 
 ```
@@ -68,13 +68,13 @@ Invoke yosys
 ```
 read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 read_verilog UART_TX.v
-synth -top iiitb_ptvm
+synth -top UART_TX
 dfflibmap -liberty lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 abc -liberty lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 stat
 show
-write_verilog iiitb_uarttx_netlist.v
-iverilog -DFUNCTIONAL -DUNIT_DELAY=#1 my_lib/verilog_model/primitives.v my_lib/verilog_model/sky130_fd_sc_hd.v iiitb_uarttx_netlist.v iiitb_uarttx_tb.v
+write_verilog uart_net.v
+iverilog -DFUNCTIONAL -DUNIT_DELAY=#1 my_lib/verilog_model/primitives.v my_lib/verilog_model/sky130_fd_sc_hd.v uart_net.v uart_tb.v
 ./a.out
 gtkwave dump.vcd
 ```
