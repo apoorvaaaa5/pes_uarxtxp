@@ -59,9 +59,12 @@ gtkwave dump.vcd
 
 ```
 
-![2efa9e72-6ffe-4012-b808-42abb2a7748d](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/33b9b4ca-c266-4639-b277-c006e0b95f49)
+![4c5d1bf5-4010-411f-a433-d42f6397c8d4](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/d69e3983-075d-4950-88b1-3d8edd919afd)
 
-![b22cf34d-f7da-413d-bb76-9de39ab0ab0e](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/fa30d9d5-be20-45b5-ba01-52bcefdd7fcc)
+![5d481715-25ec-493a-b81e-916c19fa57d6](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/84db2df7-5931-4901-8518-6e8d38b871de)
+
+![c8736fd8-5a33-4a9b-9eb8-f019658b90da](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/cad6882a-55e9-4d2b-aa4f-36fd1b8f4dd2)
+
 
 #Synthesis
 Invoke yosys
@@ -78,7 +81,14 @@ iverilog -DFUNCTIONAL -DUNIT_DELAY=#1 my_lib/verilog_model/primitives.v my_lib/v
 ./a.out
 gtkwave dump.vcd
 ```
-![5a141c76-ed4e-49a5-942a-9fa61d57c82e](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/1055dad5-50a7-48f2-8e5c-31942038435b)
+![ef0c7975-3ac5-495c-947c-3ceef0393e22](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/76cd6f65-f00d-4092-a5f0-7a719032982d)
 
-![62488ce0-88ad-4702-ac73-6195b30ad230](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/f0ac25df-c3a1-4ab3-bae9-78c5f48dc48d)
+![30d065fe-61fa-4260-bbdd-1c9cb9670d8a](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/7ed459fd-d66a-4718-b6e0-22ba88ace449)
+
+![8680e22d-2f10-4247-b588-c1d214e609bf](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/f8e8c6df-7149-4f12-beef-984e5b564c56)
+
+![950497a2-89dd-425a-9907-fc5bd8348da7](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/263f4365-37af-4c63-a4a7-efe389e74c44)
+
+![019b2dd9-7a97-4f32-833b-9f243899dcb4](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/b03088f8-c749-4b66-8068-b4453d8f7eca)
+
 
