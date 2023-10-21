@@ -63,8 +63,6 @@ gtkwave dump.vcd
 
 ![5d481715-25ec-493a-b81e-916c19fa57d6](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/84db2df7-5931-4901-8518-6e8d38b871de)
 
-![c8736fd8-5a33-4a9b-9eb8-f019658b90da](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/cad6882a-55e9-4d2b-aa4f-36fd1b8f4dd2)
-
 
 #Synthesis
 Invoke yosys
