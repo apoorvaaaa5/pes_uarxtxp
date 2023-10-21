@@ -91,4 +91,6 @@ gtkwave dump.vcd
 
 ![019b2dd9-7a97-4f32-833b-9f243899dcb4](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/b03088f8-c749-4b66-8068-b4453d8f7eca)
 
+![79cc09b9-f84e-431a-ad22-646add92e15a](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/8ab9a6fc-a3ae-4d2f-8e44-126a9e54514b)
 
+![6060f1fa-d50b-4f78-a9a8-e97a2b6278ac](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/47714469-1d88-4759-82c4-fe699560c8df)
