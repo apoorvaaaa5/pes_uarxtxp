@@ -208,6 +208,8 @@ magic -T /home/apoorva/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../
 run_cts
 ```
 ![499fd0d5-df3e-4aa1-ba64-7a1da4edc124](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/4dcc6489-a818-4e54-9168-1ede80f4c5a4)
+![51bb70da-2fd4-4a10-a43c-def355a3860f](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/fb44b730-16bb-4145-876c-27f079031501)
+
 
 ### Routing
 - Now to run routing we type
