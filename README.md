@@ -93,3 +93,131 @@ gtkwave dump.vcd
 
 ![9719d9db-62f2-458f-9421-98a658cfd5fb](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/87d6d965-bead-4058-b0c3-4d02c78cec04)
 
+# Physical Design
+## Installation of ngspice magic and OpenLANE
+
+**ngspice**
+- Download the tarball from https://sourceforge.net/projects/ngspice/files/ to a local directory
+```
+cd $HOME
+sudo apt-get install libxaw7-dev
+tar -zxvf ngspice-41.tar.gz
+cd ngspice-41
+mkdir release
+cd release
+../configure  --with-x --with-readline=yes --disable-debug
+sudo make
+sudo make install
+```
+
+**magic**
+```
+sudo apt-get install m4
+sudo apt-get install tcsh
+sudo apt-get install csh
+sudo apt-get install libx11-dev
+sudo apt-get install tcl-dev tk-dev
+sudo apt-get install libcairo2-dev
+sudo apt-get install mesa-common-dev libglu1-mesa-dev
+sudo apt-get install libncurses-dev
+git clone https://github.com/RTimothyEdwards/magic
+cd magic
+./configure
+sudo make
+sudo make install
+```
+
+**OpenLANE**
+```
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt install -y build-essential python3 python3-venv python3-pip make git
+
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io
+sudo docker run hello-world
+sudo groupadd docker
+sudo usermod -aG docker $USER
+sudo reboot 
+# After reboot
+docker run hello-world (should show you the output under 'Example Output' in https://hub.docker.com/_/hello-world)
+
+- To install the PDKs and Tools
+cd $HOME
+git clone https://github.com/The-OpenROAD-Project/OpenLane
+cd OpenLane
+make
+make test
+```
+
+## Steps to follow
+make the directory as shown below and upload all the required files along with verilog code
+
+![ee2d88a6-0ba7-4f45-9053-319f4dd585cd](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/006306b3-18f4-43af-8064-b44873564ec3)
+![2e988de3-d3f1-40aa-b062-6e71216ecdca](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/a990f4ab-8250-42ed-9aba-afe68be653e6)
+
+## Openlane flow
+- Type ```make mount``` in the main Openlane folder.
+- Then type ```./flow.tcl -interactive```.
+- To prep the design type
+```
+prep -design UART_TX
+```
+![83ea922b-ae4e-4d28-9208-103c2dbb142d](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/168ea822-afc9-46cf-bdbb-02e4df38f323)
+
+### Synthesis
+- Type
+```
+run_synthesis
+```
+![2ace41c6-046f-4860-be5d-8ec7411bac2b](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/d9bc7894-0d33-4005-979c-1f54c6d58204)
+
+### Floorplan
+- Now to run the floorplan we type
+```
+run_floorplan
+```
+![20a7fb7f-4f23-4b24-a582-f3ad9e5f9d78](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/da3150bf-68ae-4fa6-a88c-71f7b22b688e)
+
+- To view the design we type
+```
+magic -T /home/apoorva/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.nom.lef def UART_TX.def &
+```
+![bc6ec8b3-faaa-4724-af07-523d9257c9c7](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/1ae20332-820b-4957-8c2a-31436b392b0c)
+![be36db5e-1d65-4dd4-9e68-ab0d77fcb8ad](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/c6e988b9-5411-4788-b6d7-92880ae02c6e)
+
+### Placement
+- Now to run the placement we type
+```
+run_placement
+```
+- To view the design we type
+```
+magic -T /home/apoorva/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.nom.lef def UART_TX.def &
+```
+![6318ed8e-097a-4110-b3e3-31305a9eaf21](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/fb87ec38-2b68-4d30-958b-cdf1ac119660)
+
+### CTS(Clock Tree Synthesis)
+- Now to run cts we type
+```
+run_cts
+```
+![499fd0d5-df3e-4aa1-ba64-7a1da4edc124](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/4dcc6489-a818-4e54-9168-1ede80f4c5a4)
+
+### Routing
+- Now to run routing we type
+```
+run_routing
+```
+- To view the design we type
+```
+magic -T /home/apoorva/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.nom.lef def UART_TX.def &
+```
+![8471278b-4298-4141-af4b-6d1105acb788](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/cc556f9f-1cb4-4187-aa73-bd9c5ae786f8)
+![7cf833e3-7a27-4070-95d7-5d90f2775df3](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/430cc3b8-8d20-4169-903b-68d9bfb0e48e)
+![d35750d9-f550-497a-ad8d-7d5273d77cb4](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/e71f173b-3d29-4e0d-9959-6fb24c9dbfe8)
