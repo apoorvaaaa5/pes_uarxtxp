@@ -175,7 +175,10 @@ prep -design UART_TX
 ```
 run_synthesis
 ```
-![2ace41c6-046f-4860-be5d-8ec7411bac2b](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/d9bc7894-0d33-4005-979c-1f54c6d58204)
+![9c7095de-bf8d-4cd5-a944-f32ea7499167](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/3be988a9-0f47-4b56-b62e-d0a3a1ad13fa)
+![aee51d42-a8a2-4037-8cfd-1bd6dfae23c8](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/89b44c56-a82b-4c28-8cd3-3abff8c9cae4)
+
+Flop ratio=25/112
 
 ### Floorplan
 - Now to run the floorplan we type
@@ -208,8 +211,26 @@ magic -T /home/apoorva/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../
 run_cts
 ```
 ![499fd0d5-df3e-4aa1-ba64-7a1da4edc124](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/4dcc6489-a818-4e54-9168-1ede80f4c5a4)
+
+#### Power Report
+
 ![51bb70da-2fd4-4a10-a43c-def355a3860f](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/fb44b730-16bb-4145-876c-27f079031501)
 
+![8bfac8f2-3cc9-4b86-9045-5b7debd339f2](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/448d08d4-c296-4137-a7a7-db81eb428eda)
+![04b87e02-d874-4e79-ba62-59443d14faa7](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/dac28ab1-1f77-4589-88b4-d486a27c3abd)
+![34b84ed1-d3b5-42fb-ac3f-72c442b1ccc6](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/cfbc457d-8810-411b-b681-d82c7de2b7b7)
+![e330a2a3-e955-44fc-9702-f9ef53d901ef](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/57059651-8061-4378-8564-2d852adab166)
+![1dff4f35-54df-457a-a008-9f3dc24a80ad](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/07682761-08b5-4d20-a274-8dab8e75e9eb)
+
+#### Skew report
+
+As it is an asynchronous digital system you get below report
+
+![e1056ab6-becc-41ad-9e34-9ba9998c7925](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/a9602f3e-b1df-49fa-8a0e-b4bbd635d042)
+
+#### Area report
+
+![faa1921f-acfd-4fbd-8800-98575450424f](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/b5c6f08e-1989-41af-a039-6856054b7e47)
 
 ### Routing
 - Now to run routing we type
@@ -223,3 +244,19 @@ magic -T /home/apoorva/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../
 ![8471278b-4298-4141-af4b-6d1105acb788](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/cc556f9f-1cb4-4187-aa73-bd9c5ae786f8)
 ![7cf833e3-7a27-4070-95d7-5d90f2775df3](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/430cc3b8-8d20-4169-903b-68d9bfb0e48e)
 ![d35750d9-f550-497a-ad8d-7d5273d77cb4](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/e71f173b-3d29-4e0d-9959-6fb24c9dbfe8)
+
+#### Power report
+![d20a125c-c8d8-44c5-8e26-2e3e639ef692](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/1fe9efd1-d760-4739-a978-7655ad1ed99d)
+#### Congestion report
+![d5ffffe1-6ab8-436b-8631-9501aed8d03a](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/af65ef6a-4d53-4915-8564-a74b956c954d)
+#### Area report
+![faa1921f-acfd-4fbd-8800-98575450424f](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/7ececa11-9d8d-4508-83bc-8524bacaba0e)
+#### Summary report
+![0c9daf09-e7e0-4176-ab5e-0d203391f091](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/b217a99c-f4a9-4db3-b8ae-c875ecd82204)
+
+Statistics
+- Area= 1256 u^2
+- Total power= 1.42 e^04 watts
+- Internal power= 8.38 e^05 watts
+- Switching power=5.84 e^05 watts
+- Leakage power= 6.42 e^10 watts
