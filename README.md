@@ -232,6 +232,13 @@ As it is an asynchronous digital system you get below report
 
 ![faa1921f-acfd-4fbd-8800-98575450424f](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/b5c6f08e-1989-41af-a039-6856054b7e47)
 
+### Power Distribution Network
+```
+gen_pdn
+```
+
+![52b05c5f-55ac-4bea-815e-6672d16a6b25](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/3a19c9c6-328c-44b0-9799-71f2f1f746bf)
+
 ### Routing
 - Now to run routing we type
 ```
@@ -241,9 +248,10 @@ run_routing
 ```
 magic -T /home/apoorva/.volare/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.nom.lef def UART_TX.def &
 ```
-![8471278b-4298-4141-af4b-6d1105acb788](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/cc556f9f-1cb4-4187-aa73-bd9c5ae786f8)
-![7cf833e3-7a27-4070-95d7-5d90f2775df3](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/430cc3b8-8d20-4169-903b-68d9bfb0e48e)
-![d35750d9-f550-497a-ad8d-7d5273d77cb4](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/e71f173b-3d29-4e0d-9959-6fb24c9dbfe8)
+![275cb3e2-583f-45af-9123-41806e530ada](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/e8456e1d-0a2b-4e50-8d36-128047c88ea8)
+![116c1a41-1a15-4a55-80ae-c3d89841dcab](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/e9698c75-ebca-4716-aabe-35d2cea13b44)
+![47e93a79-e6a2-4627-a538-f5109f8915a9](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/31d50b72-d67f-47be-99ba-b1c925b7c84d)
+
 
 #### Power report
 ![d20a125c-c8d8-44c5-8e26-2e3e639ef692](https://github.com/apoorvaaaa5/pes_uarxtxp/assets/117642634/1fe9efd1-d760-4739-a978-7655ad1ed99d)
